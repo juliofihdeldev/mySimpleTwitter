@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#fff"
+    tools:context="com.codepath.apps.mysimpletweets.Compose">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:src="@drawable/ic_action_close"
+        android:id="@+id/cancel"
+        android:background="#fff"
+        android:padding="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/ivProfileCompose"
+        android:background="#52acf1"
+        android:src="@drawable/ic_action_user"
+        android:layout_alignTop="@+id/cancel"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name of users"
+        android:layout_marginRight="10dp"
+        android:id="@+id/tvuserNameOf"
+        android:layout_above="@+id/screenNameOfcompose"
+        android:layout_toStartOf="@+id/ivProfileCompose" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivProfileCompose"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtBody"
+            android:textColor="#333"
+            android:hint="What's happening" />
+
+    </LinearLayout>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tweet"
+            android:background="#52acf1"
+            android:id="@+id/tweet"
+            android:padding="10dp"
+            android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp"
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            android:textColor="#fff"
+        android:layout_gravity="right"
+        android:onClick="onTweet"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\@julio"
+        android:layout_marginRight="10dp"
+        android:id="@+id/screenNameOfcompose"
+        android:layout_alignBottom="@+id/cancel"
+        android:layout_toStartOf="@+id/ivProfileCompose" />
+
+</RelativeLayout>

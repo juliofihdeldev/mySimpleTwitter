@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Simple tweet</string>
+    <string name="login_label">Log in to twitter</string>
+    <string name="tweet">Tweet</string>
+
+</resources>
