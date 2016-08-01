@@ -20,15 +20,12 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
-
+    //declaration de mes  variable
     private SwipeRefreshLayout swipeContainer;
-
     private TwitterClient client;
     private ArrayList<Tweet> tweets;
     private TweetsArrayAdapter aTweets;
-
     private ListView lvTweets;
-
     User authUser;
 
     @Override
@@ -47,31 +44,33 @@ public class TimelineActivity extends AppCompatActivity {
         });
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
+        android.R.color.holo_green_light,
+        android.R.color.holo_orange_light,
+        android.R.color.holo_red_light);
 
         // getion de tolbar
 
         ActionBar actionBar = getSupportActionBar(); // or getActionBar();
         getSupportActionBar().setTitle(""); // set the top title
         String title = actionBar.getTitle().toString(); // get the title
-
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_action_icon_twitter);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        //background of tools bar
 
-
+        // initialiser mes variables
         lvTweets = (ListView) findViewById(R.id.lvTweets);
         tweets = new ArrayList<>();
         aTweets = new TweetsArrayAdapter(this, tweets);
         lvTweets.setAdapter(aTweets);
         client = TwitterApplication.getRestClient();
+
+        //appelation du fonction populatetimeline
         populateTimeline(Long.parseLong("0"));
 
+        //apel au fontion fetch user
         fetchAuthUser();
 
+        //gestion de handless scrool
         lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {

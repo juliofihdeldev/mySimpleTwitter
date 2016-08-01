@@ -8,19 +8,20 @@
     tools:context="com.codepath.apps.mysimpletweets.Compose">
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:text="Cancel"
         android:src="@drawable/ic_action_close"
         android:id="@+id/cancel"
         android:background="#fff"
         android:padding="10dp"
-        android:layout_alignParentLeft="true"
+        android:onClick="onClose"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/ivProfileCompose"
         android:background="#52acf1"
         android:src="@drawable/ic_action_user"
@@ -34,7 +35,7 @@
         android:text="name of users"
         android:layout_marginRight="10dp"
         android:id="@+id/tvuserNameOf"
-        android:layout_above="@+id/screenNameOfcompose"
+        android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/ivProfileCompose" />
 
     <LinearLayout
@@ -51,7 +52,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtBody"
             android:textColor="#333"
-            android:hint="What's happening" />
+            android:hint="What's happening"
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -70,15 +72,14 @@
         android:layout_gravity="right"
         android:onClick="onTweet"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignEnd="@+id/linearLayout" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="\@julio"
-        android:layout_marginRight="10dp"
         android:id="@+id/screenNameOfcompose"
-        android:layout_alignBottom="@+id/cancel"
-        android:layout_toStartOf="@+id/ivProfileCompose" />
+        android:layout_below="@+id/tvuserNameOf"
+        android:layout_alignEnd="@+id/tvuserNameOf" />
 
 </RelativeLayout>

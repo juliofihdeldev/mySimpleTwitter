@@ -3,8 +3,8 @@
     android:layout_width="match_parent" android:padding="10dp" android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/ivProfiileImage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -36,9 +36,10 @@
         android:layout_below="@+id/tvUserName"
         android:layout_toRightOf="@+id/ivProfiileImage"
         android:layout_toEndOf="@+id/ivProfiileImage"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:textColor="#222"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +48,7 @@
         android:text="9h"
         android:id="@+id/tvDate"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/tvBoby"
+        android:layout_alignParentRight="true"
         android:textStyle="bold" />
 
     <TextView
@@ -70,5 +71,6 @@
         android:id="@+id/tvSource"
         android:layout_below="@+id/tvBoby"
         android:layout_alignStart="@+id/tvBoby"
-        android:textColor="#0b85ff" />
+        android:textColor="#336699"
+        android:alpha="0" />
 </RelativeLayout>

@@ -2,6 +2,7 @@ package com.codepath.apps.mysimpletweets;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -31,18 +32,19 @@ public class Compose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
+        //hide tolbar
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        actionBar.hide();
         client = TwitterApplication.getRestClient();
         setUpMyView();
     }
 
     public void setUpMyView(){
-
         User user = (User) getIntent().getSerializableExtra("authUser");
         edtBody = (EditText) findViewById(R.id.edtBody);
         tvuserNameOf = (TextView) findViewById(R.id.tvuserNameOf);
         screenNameOfcompose = (TextView) findViewById(R.id.screenNameOfcompose);
         ivProfileCompose = (ImageView) findViewById(R.id.ivProfileCompose);
-
         tvuserNameOf.setText(user.getName());
         screenNameOfcompose.setText(String.format("@%s",user.getScreenName()));
 
@@ -55,10 +57,8 @@ public class Compose extends AppCompatActivity {
     }
 
     public void onTweet(View view){
-
         String status =  edtBody.getText().toString();
         Toast.makeText(this,"I tweet " ,Toast.LENGTH_LONG).show();
-
         client.postUpdateStatus(status, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -79,5 +79,9 @@ public class Compose extends AppCompatActivity {
             }
         });
 
+    }
+    public void onClose(View view){
+        finish();
+        overridePendingTransition(0,0);
     }
 }
