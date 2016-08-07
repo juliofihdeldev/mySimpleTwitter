@@ -4,5 +4,4 @@
     <string name="app_name">Simple tweet</string>
     <string name="login_label">Log in to twitter</string>
     <string name="tweet">Tweet</string>
-
 </resources>

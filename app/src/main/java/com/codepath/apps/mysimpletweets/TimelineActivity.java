@@ -29,6 +29,7 @@ import fragments.MentionsTimelineFragment;
 public class TimelineActivity extends AppCompatActivity {
     User authUser;
     private TwitterClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,9 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_action_icon_twitter);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         client = TwitterApplication.getRestClient();
+
+
+        // run a background job and once complete
         //apel au fontion fetch user
         fetchAuthUser();
 
@@ -63,32 +67,37 @@ public class TimelineActivity extends AppCompatActivity {
                 //Load the modal data intolistview
                 authUser = User.fromJSON(json);
             }
+
             //on fail
             public void onFail(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponce) {
                 Log.d("DEBUG", errorResponce.toString());
             }
         });
     }
+
     //Creer my adapter class
-    public class TweetsPagerAdapter extends FragmentPagerAdapter{
-        private String tabTitles[] ={ "Home", "Mentions"};
+    public class TweetsPagerAdapter extends FragmentPagerAdapter {
+        private String tabTitles[] = {"Home", "Mentions"};
+
         public TweetsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            if(position==0){
+            if (position == 0) {
                 return new HomeTimelineFragment();
-            }else if(position==1){
+            } else if (position == 1) {
                 return new MentionsTimelineFragment();
-            }else{
+            } else {
                 return null;
             }
         }
-        public  CharSequence getPageTitle(int position){
+
+        public CharSequence getPageTitle(int position) {
             return tabTitles[position];
         }
+
         @Override
         public int getCount() {
             return tabTitles.length;
@@ -101,6 +110,7 @@ public class TimelineActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.timeline_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
@@ -108,10 +118,10 @@ public class TimelineActivity extends AppCompatActivity {
             case R.id.compose:
                 onCompose();
                 return true;
-            /*case R.id.miProfile:
-                showProfileView();
+            case R.id.profil:
+                onProfileView();
                 return true;
-                */
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -123,4 +133,14 @@ public class TimelineActivity extends AppCompatActivity {
         i.putExtra("authUser", authUser);
         startActivityForResult(i, 100);
     }
+
+    public void onProfileView() {
+        // handle click here
+        Intent i = new Intent(this, Profile.class);
+        //i.putExtra("authUser", authUser);
+        i.putExtra("authUser", authUser);
+        startActivity(i);
+
+    }
+
 }
