@@ -7,4 +7,11 @@
         android:title="Compose">
     </item>
 
+    <item
+        android:id="@+id/profil"
+        android:icon="@drawable/ic_action_user"
+        app:showAsAction="ifRoom"
+        android:title="myuser">
+    </item>
+
 </menu>

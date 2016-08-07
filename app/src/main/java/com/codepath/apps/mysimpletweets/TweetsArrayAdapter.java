@@ -32,7 +32,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
         }
-        ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfiileImage);
+        ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
         TextView userHash = (TextView) convertView.findViewById(R.id.userHash);
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBoby);

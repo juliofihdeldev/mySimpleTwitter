@@ -5,7 +5,7 @@
     <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:id="@+id/ivProfiileImage"
+        android:id="@+id/ivProfileImage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -18,9 +18,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Juliojeanfils"
         android:id="@+id/tvUserName"
-
-        android:layout_alignTop="@+id/ivProfiileImage"
-        android:layout_toRightOf="@+id/ivProfiileImage"
+        android:layout_alignTop="@+id/ivProfileImage"
+        android:layout_toRightOf="@+id/ivProfileImage"
         style="bold"
         android:textColor="#000"
         android:textIsSelectable="false"
@@ -28,18 +27,21 @@
         android:textStyle="bold"
         android:layout_marginLeft="10dp" />
 
-    <TextView
+    <utils.LinkifiedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&quot;We all have to do our job. The President has done his. Senate Republicans must do theirs."
         android:id="@+id/tvBoby"
         android:layout_below="@+id/tvUserName"
-        android:layout_toRightOf="@+id/ivProfiileImage"
-        android:layout_toEndOf="@+id/ivProfiileImage"
+        android:layout_toRightOf="@+id/ivProfileImage"
+        android:layout_toEndOf="@+id/ivProfileImage"
         android:textSize="15dp"
+        android:autoLink="all"
+        android:textColorHint="#336699"
         android:textColor="#222"
         android:layout_marginLeft="10dp"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        />
 
     <TextView
         android:layout_width="wrap_content"
